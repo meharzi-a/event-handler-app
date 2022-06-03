@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- ADD ANY BEAN DEFINITION YOU WANT TO BE AVAILABLE TO THE TENANT ACCESSOR -->
+
+    <!-- you can define your own authentication service, don't forget to change authentication.service.ref.name property value in bonita-tenant-sp.properties -->
+    <!--
+    <bean id="myCustomAuthenticationService" class="? implements org.bonitasoft.engine.authentication.GenericAuthenticationService" lazy-init="true">
+        <constructor-arg name="arg-name" value="arg-value" />
+        <constructor-arg name="arg-name" ref="arg-ref" />
+    </bean>
+    -->
+
+    <!--
+    <bean id="commandsToDeployAtStartup" parent="spCommands" class="org.springframework.beans.factory.config.ListFactoryBean">
+        <property name="sourceList">
+            <list merge="true">
+            </list>
+        </property>
+    </bean>
+    -->
+
+    <!--
+    <bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+            </map>
+        </property>
+    </bean>
+    -->
+<!-- add event handler bean definition -->
+    <bean id="myEventHandlerBonita" class="fr.harmonieMutuelle.bpm.lib.events.EventHandler">
+		<constructor-arg name="tenantId" value="${tenantId}" />
+    </bean>
+
+    <bean id="eventHandlers" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <entry key="ACTIVITYINSTANCE_STATE_UPDATED" value-ref="myEventHandlerBonita"/>
+				<entry key="PROCESSINSTANCE_UPDATED" value-ref="myEventHandlerBonita"/>
+				<entry key="HUMAN_TASK_INSTANCE_ASSIGNEE_UPDATED" value-ref="myEventHandlerBonita"/>
+				<entry key="ACTIVITYINSTANCE_STATE_UPDATED" value-ref="myEventHandlerBonita"/>
+            </map>
+        </property>
+    </bean>
+</beans>

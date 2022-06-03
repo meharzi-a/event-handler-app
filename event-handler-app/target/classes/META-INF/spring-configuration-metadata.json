@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "jms",
+      "type": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jms.default-destination-name",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    },
+    {
+      "name": "jms.error-destination-name",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    },
+    {
+      "name": "jms.password",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    },
+    {
+      "name": "jms.reject-destination-name",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    },
+    {
+      "name": "jms.server-url",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    },
+    {
+      "name": "jms.user-name",
+      "type": "java.lang.String",
+      "sourceType": "fr.harmonieMutuelle.bpm.lib.jms.config.JmsConfig"
+    }
+  ],
+  "hints": []
+}

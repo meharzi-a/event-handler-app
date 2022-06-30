@@ -7,6 +7,7 @@ public class EventHandlerMessage {
 	private String dateEvent;
 	private String typeProcessus;	
 	private String businessDataType;
+	private String famille;
 	
 	public long getIdDemande() {
 		return idDemande;
@@ -38,5 +39,6 @@ public class EventHandlerMessage {
 	public void setBusinessDataType(String businessDataType) {
 		this.businessDataType = businessDataType;
 	}
-	
+	public String getFamille() { return famille;}
+	public void setFamille(String famille) {this.famille = famille;}
 }

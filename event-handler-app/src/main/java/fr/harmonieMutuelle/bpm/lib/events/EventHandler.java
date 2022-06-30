@@ -216,6 +216,7 @@ public class EventHandler implements SHandler<SEvent>, Serializable{
 
 		}
 
+		
 		LOGGER.info(" **** Event Handler - return  isInterested"+isInterested);
 		LOGGER.info(" *********************");
 		return isInterested;

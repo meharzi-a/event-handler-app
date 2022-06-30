@@ -206,7 +206,9 @@ public class EventHandler implements SHandler<SEvent>, Serializable{
 			LOGGER.info(" **** Event Handler -  eventObject getType v5 "+flowNodeInstance.getType());
 			LOGGER.info(" **** Event Handler -  eventObject getStateId v5 "+flowNodeInstance.getStateId());
 
-			isInterested = (flowNodeInstance.getType().equals(SFlowNodeType.USER_TASK) && flowNodeInstance.getStateId()==4 || flowNodeInstance.getType().equals(SFlowNodeType.END_EVENT) && flowNodeInstance.getStateId()==2);
+			isInterested = (flowNodeInstance.getType().equals(SFlowNodeType.USER_TASK) && flowNodeInstance.getStateId()==4); if(isInterested) return isInterested;
+			isInterested = (flowNodeInstance.getType().equals(SFlowNodeType.END_EVENT) && flowNodeInstance.getStateId()==1); if(isInterested) return isInterested;
+			isInterested = (flowNodeInstance.getType().equals(SFlowNodeType.START_EVENT) && flowNodeInstance.getStateId()==0);
 			LOGGER.info(" **** Event Handler - isInterested "+isInterested);
 
 			//	processInstanceId = flowNodeInstance.getParentProcessInstanceId();
